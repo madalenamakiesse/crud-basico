@@ -1,0 +1,15 @@
+No ficheiro .env é one podemos encontrar definições para a conexão com a base de dados criada. Neste caso edita-se as linhas 9 a 14 com as informações da base de dados que se quer conectar.
+As migations encontram-se no database/migrations. As migrations são arquivos de instrução para a criação de tabelas na base de dados. As migrations nativas são create_users_table, create_password_reset_tokens, create_failed_jobs_table e create_personal_access_tokens_table.
+No phpAdmin, depois de feita as migrations, já é possível verificar a tabela "users" criada. Também pode encontrar a tabela "migrations", que é um recurso nativo do Laravel que serve para registrar quais migrations já foram executadas para preenir a tentativa de criação de uma tabela já existente.
+Cria-se um model com o seguinte comandoz. O "-m" é para criar migration para o model criado:
+    php artisan make:model Nome -m
+Depois de criado o model para o Produto, aceda a migration do produto e edite as informações que se esperam no campo da tabela dos produtos: nome, custo, preço e quantidade. Faça o migrate para enviar os dados novos a tabela.
+    php artisan migrate
+Os Models encontram-se no app/Models. O Model é como um representante da tabela existente no nosso framework. Ele permite criar, visualizar, editar e deletar com maior facilidade.
+
+Os recursos que serão apresentados pela nossa página, encontram-se em resources/views. Criou-se uma pasta produtos para melhor organizar os arquivos do produto.
+Os Controllers têm a função de apresentar as views de um Model. Acesse os controllers em app\Http\Controlers. Para criar um controller use o comando:
+    php artisan make:controller ProdutosController
+dd() é a função usada para verificar os dados que são enviados
+$request->all() imprime na tela todas as funções que estão chegando
+@csrf cria tokens temporários para evitar que os dados sejam enviados para outras aplicações além dessa.
